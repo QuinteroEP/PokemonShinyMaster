@@ -1,0 +1,153 @@
+
+/*borde para debug
+* {
+    border: 1px solid red;
+}*/
+
+#tabla_metodos{
+    border: 2px solid black;
+    width: 90%;
+
+    margin: 0 auto;
+}
+
+#tabla_metodos th{
+    background-color: darkblue;
+    color: white;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+#tabla_metodos tr:nth-child(even){
+    background-color: white;
+}
+
+#tabla_metodos tr:nth-child(odd){
+    background-color: lightgreen;
+}
+
+#tabla_metodos td{
+    font-style: italic;
+    font-size: 22px;
+    font-family: 'Times New Roman', Times, serif;
+
+    border: 1px solid black;
+    text-align: center;
+}
+
+
+#title{
+    background-image: url(../Images/Banner.jpg);
+    height: 250px;
+
+    text-align: center;
+    margin-top: 70px;
+
+    font-family: "Edu AU VIC WA NT Hand", cursive;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 65px;
+
+    color: gold;
+    -webkit-text-stroke: 2px black;
+    /*outline para el titulo*/
+}
+
+h2{
+    text-decoration: underline;
+    text-decoration-color: rgb(0, 170, 227);
+
+    font-size: 30px;
+    margin-bottom: 0%;
+    margin: 0 10px;
+}
+
+h4{
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-style: italic;
+
+    margin-top: 0%;
+    margin: 0 5px;
+}
+
+#navfather{
+    display: flex;
+    flex-direction: row;
+
+    background-color: rgb(12, 39, 97);
+
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+#navbar{
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+#navbar li{
+    font-family: "Roboto Condensed", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: italic;
+    font-size: 25px;
+
+    text-decoration: none;
+
+    display: inline;
+    margin: 10px;
+    padding: 10px;
+}
+
+#navbar li:hover{
+    color: yellow;
+    font-size: 30px;
+}
+
+footer{
+    flex-direction: column;
+    justify-content: center;
+
+    background-color: rgb(12, 39, 97);
+    color: lightgray;
+
+    font-family: "Roboto Condensed", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: italic;
+}
+
+ul li{
+    list-style-type: none;
+    color: white;
+}
+
+p{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    text-align: l;
+}
+
+a{
+    text-decoration: none;
+}
+
+html, body{
+    padding: 0%;
+    margin: 0%;
+}
+
+html{
+    scroll-behavior: smooth;
+    scroll-padding: 70px;
+}
+
+span{
+    color: lightblue;
+    text-decoration: underline;
+}

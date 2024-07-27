@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shiny Pokemon Master</title>
+    <meta
+        name="Shiny Pokemon Master"
+        content="Learn more about shiny Pokemon and keep track of the ones you've captured"
+        />
+    <meta name="keywords" content="Pokemon, Shiny" />
+    <link rel="stylesheet" href="../css/index_style.css" />
+    <script src="../Scripts/script.js"></script>
+
+    <!--fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@500&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div id="navfather">
+            <div id="navbar">
+                <ul>
+                    <a href="#landing"> <li>Home</li> </a>
+                    <a href="methods.html"> <li>Methods</li> </a>
+                    <a href="Register.html"> <li>Registered Pokemon</li> </a>
+                    <a href="Charms.html"> <li>Meet the Charms</li> </a>
+                    <a href="Tips.html"> <li>Tips</li> </a>
+                </ul>
+            </div>
+        </div>
+
+        <div id="landing">
+            <div id="title">
+                <h1>Shiny Pokemon Master</h1>
+            </div>
+            
+            
+            <div id="intro">
+                <h2>Your one stop to kickstart your shiny collection</h2>
+        
+                <p>
+                    Shiny pokemon have been a constant in the videogames ever since their introduction all the way back in Generation 2, and now, so many years later, hundreds of trainers have made their goal to collect as many of these coveted creatures. With a spawn chance of as low as 1 in 4096 per encounter, it may seem as a daunting task to attempt to hunt for one, but with the right tools and proper preparations, this process can be greatly improved, and even enjoyed!
+                </p>
+                <p>
+                    <img src="../Images/shinys.png" alt="Normal Greninja VS Shiny Greninja" class="floating_image_left">
+                    But what makes these rare Pokemon so desired? Surely there's something really special about them to grant them being so rare, are they stronger than normal Pokemon? Well, no. In fact, the only thing that differentiates these rarer Pokemon are their alternate color and the special sparkly animation that plays each time they are sent out. The difference can be as simple as just a hue change, to an entirely different color scheme. <br><br> <em>As you can see on the image, normal Greninja is on the left while shiny Greninja is on the right.</em> 
+                <p>
+                    Now, technically, shinys have been in the games since the very begining, at least, when it comes to the code, but visually they were "added" in Generation 2. What determines shininess has changed a little throught the generations.
+                </p>
+                <p>
+                    In Generation 1 and 2, it was determined by the Pokemon's <strong>DVs</strong>; their stats and "genes" the Defence DVs and Attack DVs had to be an specific value for the Pokemon to be considered shiny. The chance for this to happen 1/8192 per Pokemon (<strong>0.01%</strong>)
+                </p>
+                <p>
+                    However, ever since Generation 3, the formula has changed. What determines shininess now are 3 values: the trainer's Trainer ID, their Secret ID, which are both generated once you start the game, and the Pokemon's Personality Value, a hidden 32 bit unsigned integer. All numbers are randomly generated, and the result after applying the formula that determines shininess will give a result between 0 and 65535. If this resulting number is <strong>less</strong> than 8, the Pokemon will be shiny.
+                </p>
+                <p>
+                    <img src="../Images/Square_Shiny.png" alt="Square shiny particles" class="floating_image_right">
+                    In Generation 6, the formula was slightly changed again, this time in the player's favor, now the result only had to be lower than 16, esentially doubling the chances, and giving the rate we now have of 1/4096 (<strong>0.02%</strong>). Aditionally, in Generation 8, if the value is 0, the Pokemon will be considered a <em>Fateful Encounter</em>, and will have squared particles, instead of the normal star-like.
+                </p>
+                <p>
+                    In this page, you'll find everthing you need for you to be ready to start hunting shiny Pokemon, from a list of the most commonly used methods, to a tracker for you to register the shiny Pokemon you've found.
+                </p>
+                <p id="final_text">
+                    Happy Hunting!
+                </p>
+            </div>
+        </div>
+    </header>
+    <div id="clear"></div>
+    <footer>
+        <div id="contacto">
+            <p>Pablo Enrique Quintero Callamand (<span>p_quintero@javeriana.edu.co</span>) </p>
+            <p>Copyright &copy; 2024</p>
+            <p>Universidad Javeriana - Bogotá, Colombia</p>
+        </div>
+    </footer>
+
+</body>
+</html>
