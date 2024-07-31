@@ -4,6 +4,7 @@ window.onload = () => {
     /*Datos de prueba*/
 
     let caught = [];
+
     function create(name, species, game, Encounters, method, charm, url)
     {
         let Shiny = new Pokemon(name, species, game, Encounters, method, charm, url)
@@ -35,8 +36,9 @@ window.onload = () => {
     body.deleteRow(0);
 
     //Construir tabla inicial
-    create("Jane Doe", "Mew", "Red", "123", "Random", "No", "")
-    create("Shine", "Onyx", "X", "0","Random", "No", "")
+    create("Jane Doe", "Mew", "Red", "123", "Other", "No", "../Images/shinyPics/Spr_2s_151_s.png")
+    create("Aether", "Druddigon", "X", "1","Random Encounters", "No", "../Images/shinyPics/20240729_212717.jpg")
+    create("", "Xurkitree", "Ultra Sun", "2350", "Soft Reseting", "Yes", "")
 
     for (let i = 0; i<caught.length; i++)
         {
@@ -51,36 +53,42 @@ window.onload = () => {
     /*Pokemon*/
     const txtN = document.getElementById("txtNick");
     /*Nickname*/
-    const lstG = document.getElementById("lstGame");
+    const oGm = document.getElementById("originGame");
     /*Game*/
     const nEnc = document.getElementById("numEncounters");
     /*Encounters*/
-    const lstM = document.getElementById("lstMethod");
-    /*Method*/
-    const chOp = document.getElementById('charmCheck')
-    /*Charm?*/
     const pic = document.getElementById("photo");
     /*Photo URL*/
-    var listExists = false;
+    const lstM = document.getElementById("lstMethod");
+    /*Method*/
 
+    //Enviar Formulario
     form.addEventListener("submit", (event) => {
         event.preventDefault();
 
-        console.log(chOp);
-        getCharmOpt(chOp);
+        var chOp = document.querySelector('input[name="charmCheck"]:checked');
+        /*Charm?*/
 
-        /*Vaciar la tabla antes de actualizarla*/
-        var index = caught.length - 1;
-        clearTable(index);
+        //verificar que todo sea valido
+        if(verify(txtN.value)){ 
 
-        /*Construir nuevo objeto*/
-        create(txtN.value, txtP.value, lstG.value, nEnc.value, lstM.value, chOp, pic.value);
-        console.log(caught)
+            //Seleccionar opcion del Charm
+            chOp = getCharmOpt(chOp);
+            console.log("Result: " + chOp);
+            /*Vaciar la tabla antes de actualizarla*/
+            var index = caught.length - 1;
+            clearTable(index);
 
-        /*Actualizar tabla*/
-        for (let i = 0; i<caught.length; i++)
-        {
-            tableBuilder(caught[i])
+            /*Construir nuevo objeto*/
+            create(txtN.value, txtP.value, oGm.value, nEnc.value, lstM.value, chOp, pic.value);
+            console.log(caught)
+
+            /*Actualizar tabla*/
+            for (let i = 0; i<caught.length; i++)
+            {
+                tableBuilder(caught[i])
+            }
+
         }
     })
 
@@ -126,7 +134,7 @@ window.onload = () => {
     /*Mostrar informacion*/
     function showInfo(pokemon){
        
-        console.log("button for " + pokemon.Nickname)
+        console.log("button for " + pokemon.Species)
 
         console.log(pokemon)
 
@@ -134,6 +142,7 @@ window.onload = () => {
 
         //Lista de informacion
         var infoList = document.createElement("ul");
+        
         var item1 = document.createElement("li");
         var item2 = document.createElement("li");
         var item3 = document.createElement("li");
@@ -142,55 +151,100 @@ window.onload = () => {
         var item6 = document.createElement("li");
 
         //actualizar tabla
-        clearList(infoList);
+        clearList(infoDiv);
 
         console.log("Creating New List")
-        item1.textContent = "Nickname: " + pokemon.Nickname;
-        infoList.appendChild(item1)
-
-        infoDiv.appendChild(infoList);
+        if(pokemon.Nickname != ""){
+            item1.textContent = "Nickname: " + pokemon.Nickname;
+            infoList.appendChild(item1)
+        }
 
         item2.textContent = "Species: " + pokemon.Species;
         infoList.appendChild(item2)
 
-        infoDiv.appendChild(infoList);
-
-        item3.textContent = "Game: " + pokemon.originGame;
+        item3.textContent = "Game of Origin: " + pokemon.originGame;
         infoList.appendChild(item3)
-
-        infoDiv.appendChild(infoList);
 
         item4.textContent = "Encounters: " + pokemon.Encounters;
         infoList.appendChild(item4)
 
-        infoDiv.appendChild(infoList);
-
-        item5.textContent = "Method: " + pokemon.Method;
+        item5.textContent = "Method Used: " + pokemon.Method;
         infoList.appendChild(item5)
 
-        infoDiv.appendChild(infoList);
-
-        item6.textContent = "Shiny charm?: " + pokemon.charm;
+        item6.textContent = "Shiny charm? " + pokemon.Charm;
         infoList.appendChild(item6)
 
         infoDiv.appendChild(infoList);
+
+        loadImage(pokemon.Photo, pokemon.Nickname)
     }
     
-    function getCharmOpt(radio){
-        console.log("checking for charm. ");
+    function clearList(list){
+        console.log("Clearing List")
+        while(list.firstChild){
+            list.removeChild(list.firstChild);
+        }
+        console.log("Done")
 
-        for(var i = 0; i<radio.length; i++){
-            if(radio[i].checked){
-                console.log(radio[i].value)
-            }   
+
+    }
+
+    function getCharmOpt(radio){
+        console.log("checking for charm");
+        console.log("Option: " + radio.value)
+
+        if(radio.value == "charmNo"){
+            return "No";
+        }
+        else{
+            return "Yes";
         }
     }
 
-    function clearList(ul){
-        console.log("Clearing List")
-        while(ul.firstChild){
-            ul.removeChild(firstChild);
+    function loadImage(url, name){
+        console.log(url)
+        
+        var imageDiv = document.getElementById("Photo")
+        var image = document.createElement("img")
+
+        clearImage(imageDiv);
+
+        if(url != "")
+        {
+            image.alt = name;
+            image.src = url;
+            imageDiv.appendChild(image);
         }
-        console.log("Done")
+        else{
+            var error = document.createElement("p");
+
+            error.innerHTML = "No Photo registered"
+            imageDiv.appendChild(error);
+        }
+        
+    }
+
+    function clearImage(imageDiv){
+        while(imageDiv.firstChild){
+            imageDiv.removeChild(imageDiv.firstChild);
+        }
+    }
+
+    function verify(nick){
+        console.log("checking...")
+
+        nick = nick.toLowerCase()
+
+        console.log(nick)
+        var regex = /[^a-z0-9]/
+
+        if(regex.test(nick))
+        {
+            alert("Please don't include special characters on the nickname")
+        }
+        else{
+            console.log("valid")
+            return true
+        }
     }
 }

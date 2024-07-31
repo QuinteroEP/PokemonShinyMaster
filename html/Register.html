@@ -55,7 +55,7 @@
         <br>
         
         <div id="Formulario">
-            <form id="registerForm">
+            <form id="registerForm" method="post"> 
                 <fieldset>
                     <legend>Register Form</legend>
 
@@ -65,75 +65,29 @@
                     <label for="txtNick">Nickname (Optional)</label>
                     <input type="text" name="nick" id="txtNick">
 
-                    <label for="lstGame">Game</label>
-                    <input list="lstGame" name="game" required>
-
-                    <datalist id="lstGame">
-                        <option value="Gd">Gold</option>
-                        <option value="Sv">Silver</option>
-                        <option value="Cr">Crystal</option>
-
-                        <option value="Ry">Ruby</option>
-                        <option value="Sp">Sapphire</option>
-                        <option value="Em">Emerald</option>
-
-                        <option value="Dm">Diamond</option>
-                        <option value="Pl">Pearl</option>
-                        <option value="Pt">Platinum</option>
-
-                        <option value="Bl">Black</option>
-                        <option value="Wh">White</option>
-
-                        <option value="B2">Black 2</option>
-                        <option value="W2">White 2</option>
-
-                        <option value="X">X</option>
-                        <option value="Y">Y</option>
-
-                        <option value="Or">Omega Ruby</option>
-                        <option value="As">Alpha Sapphire</option>
-
-                        <option value="S">Sun</option>
-                        <option value="M">Moon</option>
-
-                        <option value="Us">Ultra Sun</option>
-                        <option value="Um">Ultra Moon</option>
-
-                        <option value="Sw">Sword</option>
-                        <option value="Sh">Shield</option>
-
-                        <option value="Bd">Brillant Diamond</option>
-                        <option value="Sp">Shinning Pearl</option>
-                        
-                        <option value="Sc">Scarlet</option>
-                        <option value="Vi">Violet</option>
-
-                        <option value="La">Legends: Arceus</option>
-
-                        <option value="O">Other</option>
-
-                    </datalist>
+                    <label for="originGame">Game</label>
+                    <input type="text" name="game" id="originGame" required>
 
                     <label for="numEncounters">Number of enounters/Eggs (0 if unknown)</label>
                     <input type="number" name="enc" id="numEncounters" value="0" required>
                     
                     <label for="lstMethod">Method</label>
                     <select name="meth" id="lstMethod" required>
-                        <option value="breed">Breeding</option>
-                        <option value="worm">Ultra Wormholes</option>
-                        <option value="sos">S.O.S Battles</option>
-                        <option value="nav">DexNav</option>
-                        <option value="radar">Pokeradar</option>
-                        <option value="fish">Chain Fishing</option>
-                        <option value="raid">Dynamax Adventures</option>
-                        <option value="randm">Random Encounters</option>
-                        <option value="sr">Soft Reseting</option>
-                        <option value="om">Other</option>
+                        <option value="Breeding">Breeding</option>
+                        <option value="Ultra Wormholes">Ultra Wormholes</option>
+                        <option value="S.O.S">S.O.S Battles</option>
+                        <option value="DexNav">DexNav</option>
+                        <option value="Pokeradar">Pokeradar</option>
+                        <option value="Chain Fishing">Chain Fishing</option>
+                        <option value="Dynamax Adventures">Dynamax Adventures</option>
+                        <option value="Random Encounters">Random Encounters</option>
+                        <option value="Soft Reseting">Soft Reseting</option>
+                        <option value="Other">Other</option>
                     </select>
 
                     <p><strong>Shiny Charm?</strong></p>
                     <div id="charmOption">
-                        <input type="radio" name="charmCheck" value="charmYes" id="charmYes">
+                        <input type="radio" name="charmCheck" value="charmYes" id="charmYes" >
                         <label for="charmYes">Yes</label>
 
                         <input type="radio" name="charmCheck" value="charmNo" id="charmNo" checked>
@@ -156,6 +110,7 @@
 
     </div>
 
+    <br>
     <hr>
 
     <div id="registered">
@@ -174,7 +129,17 @@
         </table>
     </div>
     
-    <div id="information">
+    <br>
+
+    <div id="Data">
+
+        <div id="information">
+
+        </div>
+    
+        <div id="Photo">
+            
+        </div>
 
     </div>
     

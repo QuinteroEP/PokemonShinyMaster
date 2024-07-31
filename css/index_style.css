@@ -14,7 +14,7 @@ html{
     scroll-padding: 70px;
 }
 
-/*titulo y banner*/
+/*titulo*/
 #title{
     background-image: url(../Images/Banner.jpg);
     height: 250px;
@@ -26,13 +26,13 @@ html{
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
-    font-size: 4.5vw;
+    font-size: 3.5vw;
 
     color: gold;
     -webkit-text-stroke: 2px black;
     /*outline para el titulo*/
 }
-/*titulo y banner*/
+/*titulo*/
 
 /*barra de navegacion*/
 #navfather{
